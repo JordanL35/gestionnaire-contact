@@ -25,7 +25,6 @@ function afficherContacts() {
     // Si aucun contact, affiche un message
     if (contacts.length === 0) {
         listeContacts.innerHTML = 'Aucun contact pour l\'instant.'
-        console.log('Test affichage L.29');
         return;
     }
 
@@ -53,7 +52,10 @@ function afficherContacts() {
     });
 }
 
+
 // Ajout d'un contact
+
+
 formulaire.addEventListener('submit', function(event) {
     // Empêche la page de se recharger
     event.preventDefault();
@@ -81,3 +83,54 @@ formulaire.addEventListener('submit', function(event) {
     // On réaffiche la liste mise à jour
     afficherContacts();
 });
+
+
+// Gestion de suppression et modification 
+
+
+listeContacts.addEventListener('click', function(event) {
+  // Récupérer l'élément cliqué
+  const cible = event.target;
+
+  // Suppression
+  if (cible.classList.contains('btn-supprimer')) {
+    // Récupérer l'id stocké dans data-id et on le convertit en nombre
+    const id = Number(cible.dataset.id);
+
+    // Filtrer le tableau : garder tous les contacts sauf celui avec cet id
+    contacts = contacts.filter(function(c) {
+      return c.id !== id;
+    });
+
+    // Réaffiche
+    afficherContacts();
+  }
+
+  // Modification
+  if (cible.classList.contains('btn-modifier')) {
+    const id = Number(cible.dataset.id);
+
+    // Retrouver le contact dans le tableau grâce à son id
+    const contact = contacts.find(function(c) {
+      return c.id === id;
+    });
+
+    // Demander les nouvelles valeurs
+    const nouveauNom   = prompt('Nouveau nom :', contact.nom);
+    const nouvelEmail  = prompt('Nouvel email :', contact.email);
+
+    // Si l'utilisateur n'a pas annulé
+    if (nouveauNom !== null && nouvelEmail !== null) {
+      contact.nom   = nouveauNom.trim();
+      contact.email = nouvelEmail.trim();
+    }
+
+    // On réaffiche
+    afficherContacts();
+  }
+});
+
+
+// Initialisation : affiche la liste au chargement de la page
+
+afficherContacts();
