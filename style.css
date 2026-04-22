@@ -1,0 +1,135 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Les paddings n'agrandissent pas les éléments */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  padding: 40px 20px;
+}
+
+/* ===== TITRE ===== */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+/* ===== FORMULAIRE ===== */
+form {
+  display: flex;           /* Les champs s'alignent en ligne */
+  gap: 10px;               /* Espace entre chaque élément */
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;         /* Sur petit écran, ils passent à la ligne */
+}
+
+input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 220px;
+  outline: none;           /* Supprime le contour bleu par défaut */
+  transition: border-color 0.2s; /* Animation douce au focus */
+}
+
+input:focus {
+  border-color: #3498db;   /* Bordure bleue quand on clique dans le champ */
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;         /* Le curseur devient une main */
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #2980b9; /* Couleur plus sombre au survol */
+}
+
+/* ===== LISTE DES CONTACTS ===== */
+ul {
+  list-style: none;        /* Supprime les puces */
+  max-width: 600px;
+  margin: 0 auto;          /* Centre la liste */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ===== CARTE D'UN CONTACT ===== */
+li {
+  background: white;
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* Ombre légère */
+}
+
+/* Bloc nom + email */
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infos .nom {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.infos .email {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Bloc boutons modifier + supprimer */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Bouton Modifier */
+.btn-modifier {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s;
+}
+
+.btn-modifier:hover {
+  background-color: #d68910;
+}
+
+/* Bouton Supprimer */
+.btn-supprimer {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s;
+}
+
+.btn-supprimer:hover {
+  background-color: #c0392b;
+}
