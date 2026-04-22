@@ -24,7 +24,7 @@ function afficherContacts() {
 
     // Si aucun contact, affiche un message
     if (contacts.length === 0) {
-        listeContacts.innerHTML = 'Aucun contact pour l\'instant.'
+        listeContacts.innerHTML = '<p style="text-align:center;color:#aaa;">Aucun contact pour l\'instant.</p>'
         return;
     }
 
